@@ -4,6 +4,7 @@ Starter template for [Svelte](https://svelte.dev) frontend apps with Rust [Tide]
 
 Ideas taken from https://github.com/sachinbhutani/svelte-on-rust which combined rocket.rs and svelte.
 
+![](example.gif)
 
 ## Requirements
 
