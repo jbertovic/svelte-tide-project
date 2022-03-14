@@ -1,0 +1,7 @@
+# Added by svelte
+/node_modules/
+/public/build/
+.DS_Store
+
+# Added by cargo
+/target
