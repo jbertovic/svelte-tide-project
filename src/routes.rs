@@ -14,7 +14,6 @@ pub async fn get_session(req: tide::Request<()>) -> tide::Result  {
 pub async fn login(mut req: tide::Request<()>) -> tide::Result  {
 
     // doesn't check if user is already logged in
-
     let Login {username, password: _} = req.body_json().await?;
 
     // password ignored - assumes here that password is good (ie doesn't check)
@@ -28,7 +27,6 @@ pub async fn login(mut req: tide::Request<()>) -> tide::Result  {
 }
 
 pub async fn logout(mut req: tide::Request<()>) -> tide::Result  {
-
     // destroy session
     req.session_mut().destroy();
     Ok(Response::builder(200)
@@ -42,7 +40,6 @@ pub async fn secure(req: tide::Request<()>) -> tide::Result  {
 
     // check if session and user exist
     let user_id: String = req.session().get("user_id").unwrap_or("".to_string());
-    dbg!(&req.session());
 
     if !user_id.is_empty() {
         Ok(Response::builder(200)
@@ -57,7 +54,6 @@ pub async fn secure(req: tide::Request<()>) -> tide::Result  {
         .build()
         )
     }
-
 }
 
 #[derive(Deserialize)]
