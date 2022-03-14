@@ -17,7 +17,7 @@ Create a new project based on this template using [degit](https://github.com/Ric
 install the dependencies...
 
 ```bash
-npx degit jbertovic/svelte-on-rust svelte-tide-project
+npx degit jbertovic/svelte-tide-project svelte-tide-project
 cd svelte-tide-project
 npm install
 ```
