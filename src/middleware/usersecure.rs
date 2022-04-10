@@ -13,6 +13,8 @@ pub fn user_secure<State: Clone + Send + Sync + 'static>(
         // check if session and user exist
         let user_id: Option<String> = req.session().get("user_id");
 
+        tide::log::info!("Middleware::user_secure: checking if user exists");
+
         match user_id {
             Some(_) => Ok(next.run(req).await),
             None => Ok(Response::builder(StatusCode::Unauthorized)
