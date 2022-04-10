@@ -1,6 +1,6 @@
 [package]
 name = "svelte-tide-project"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Jasmin Bertovic <jas@bertovic.net>"]
 edition = "2021"
 

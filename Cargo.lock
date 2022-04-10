@@ -1319,7 +1319,7 @@ checksum = "45f6ee7c7b87caf59549e9fe45d6a69c75c8019e79e212a835c5da0e92f0ba08"
 
 [[package]]
 name = "svelte-tide-project"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
  "async-std",
  "serde",
