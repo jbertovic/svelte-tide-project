@@ -1,7 +1,11 @@
+use crate::middleware::user_secure;
 use std::env;
 
 // route handlers
 mod routes;
+
+// middleware handlers
+mod middleware;
 
 #[async_std::main]
 async fn main() -> tide::Result<()> {
@@ -34,13 +38,14 @@ async fn main() -> tide::Result<()> {
     app.at("/").serve_file("public/index.html")?;
 
     // configure Routes
+    
+    // authorization and session management
     app.at("/auth/login").post(routes::login);
     app.at("/auth/logout").get(routes::logout);
-    app.at("/auth/session").get(routes::get_session);
+    app.at("/auth/session").get(routes::session);
 
-    // private area
-    app.at("/secure").get(routes::secure);
-
+    // private area uses user_secure middleware to check if user is logged in
+    app.at("/secure").with(user_secure).get(routes::secure);
 
     // start server
     app.listen(addr).await?;
